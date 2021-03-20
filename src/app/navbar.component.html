@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" routerLink="">Работа с JSONPlaceholder</a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <button class="btn btn-light" (click)="goTable1()">Старая таблица</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-light" (click)="goTable2()">Новая таблица</button>
+        </li>
+      </ul>
+    </div>
+  </nav>

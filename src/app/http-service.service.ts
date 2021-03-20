@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
+import { Observable } from 'rxjs';
+import { User, Users } from './user.interface';
 
 
 @Injectable({
@@ -13,67 +14,43 @@ export class MyHttpServiceService {
 
   constructor(private httpclient: HttpClient) { }
 
-  getUsers(){
-    return this.httpclient.get('https://jsonplaceholder.typicode.com/users')
-
+  getUsers(): Observable<Users>{
+    return this.httpclient.get('https://jsonplaceholder.typicode.com/users') as Observable<Users>;
   }
 
   loadUsers(){
     this.users=this.getUsers();
   }
 
-  postUser() {
-    return this.httpclient.post('https://jsonplaceholder.typicode.com/users',{
-      name: 'Chelsey Dietrich',
-      username: 'Kamren',
-    }).pipe(map(data=>{
-      console.log(data);
-      return data
-    }));
-  }
-
   loadUser(){
     //this.posts=this.getPosts();
-    this.user=this.postUser();
+    /* this.user=this.postUser(); */
   }
 
-  getPost(){
-
+  deleteUser(i: number) {
+    return this.httpclient
+      .delete('https://jsonplaceholder.typicode.com/users/' + i)
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      )
+      .subscribe((data) => {
+        console.log('delete', data);
+      });
   }
 
-  fillUserData(){
-    /* this.users.forEach(user => { this.userData.name = user.name }); */
-      
-    
+  postUser(user: User) {
+    return this.httpclient
+      .post('https://jsonplaceholder.typicode.com/users', user)
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      )
+      .subscribe((data) => {
+        console.log('Добавление POST', data);
+      });
   }
+  
 }
-
-
-/* #todo
-loadUser(): void {
-  this.httpclient.get('assets/user.json').subscribe((data)=>this.user=data)
-}
-
-getPosts() {
-  return this.httpclient.get('https://jsonplaceholder.typicode.com/posts'); //здесь без subscribe но зато с пайпом async в шаблоне
-}
-
-postPosts() {
-  return this.httpclient.post('https://jsonplaceholder.typicode.com/posts',{
-    title: 'foo',
-    body: 'bar',
-    userId: 1
-  }).pipe(map(data=>{
-    console.log(data);
-    return data
-  }));
-}
-
-loadPosts(){
-  //this.posts=this.getPosts();
-  this.posts=this.getPosts()
-}
-loadPost(){
-  //this.posts=this.getPosts();
-  this.post=this.postPosts()
-} */

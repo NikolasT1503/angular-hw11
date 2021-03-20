@@ -3,19 +3,17 @@ import { MyHttpServiceService } from './http-service.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'angular-homework11-httpclientInterceptor';
+export class NavbarComponent implements OnInit {
+
   navbarOpen = false;
 
-  constructor(public myHttp: MyHttpServiceService, private router: Router){
+  constructor(public myHttp: MyHttpServiceService, private router: Router){}
 
-  }
-
-  ngOnInit(){
+  ngOnInit(): void {
   }
 
   toggleNavbar(){

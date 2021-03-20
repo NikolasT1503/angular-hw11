@@ -10,20 +10,10 @@ export class FilterPipePipe implements PipeTransform {
   transform(users: Users, filterStr: string): unknown {
     return users.filter(user => {
       return (
-        user.name.includes(filterStr) ||
-        user.username.includes(filterStr) ||
-        user.email.includes(filterStr) ||
-        user.address.street.includes(filterStr) ||
-        user.address.suite.includes(filterStr) ||
-        user.address.city.includes(filterStr) ||
-        user.address.zipcode.includes(filterStr) ||
-        user.address.geo.lat.includes(filterStr) ||
-        user.address.geo.lng.includes(filterStr) ||
-        user.phone.includes(filterStr) ||
-        user.website.includes(filterStr) ||
-        user.company.name.includes(filterStr) ||
-        user.company.catchPhrase.includes(filterStr) ||
-        user.company.bs.includes(filterStr)
+        user.name.toLowerCase().includes(filterStr.toLowerCase()) ||
+        user.username.toLowerCase().includes(filterStr.toLowerCase()) ||
+        user.email.toLowerCase().includes(filterStr.toLowerCase()) ||
+        user.addrstr.toLowerCase().includes(filterStr.toLowerCase())
       );
     });
   }

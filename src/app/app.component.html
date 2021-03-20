@@ -1,4 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<app-navbar></app-navbar>
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" routerLink="">Работа с JSONPlaceholder</a>
   <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse"
     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -9,14 +14,16 @@
   <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <button class="btn btn-light" (click)="myHttp.loadUsers()">GET users</button>
+        <button class="btn btn-light" (click)="goTable1()">Старая таблица</button>
       </li>
       <li class="nav-item">
-        <button class="btn btn-light" (click)="myHttp.loadUser()">GET posts 1</button>
+        <button class="btn btn-light" (click)="goTable2()">Новая таблица</button>
       </li>
     </ul>
   </div>
-</nav>
+</nav> -->
+
+
 
 <!--  <ul>
   <li *ngFor="let user of myHttp.users | async">{{user | json}}</li>
@@ -28,7 +35,5 @@
 
 </form> -->
 
-<app-table-component></app-table-component>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<!-- <app-table-component></app-table-component> -->
+<!-- <mattable></mattable> -->

@@ -42,7 +42,7 @@ export class HttpConcatAddressInterceptor implements HttpInterceptor {
             return item;
           });
 
-          //console.log('new_body', new_body);
+          console.log('new_body', new_body);
 
           const modEvent = event.clone({ body: new_body }); //здесь внутри {} для каждого объекта внутри response пробежаться и преобразовать address с помощью стрелочной функции
 

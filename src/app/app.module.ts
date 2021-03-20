@@ -10,6 +10,11 @@ import { NameConcatPipe } from './name-concat.pipe';
 import { TableComponentComponent } from './table-component/table-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipePipe } from './filter-pipe.pipe';
+import { MaterialTableComponent } from './material-table/material-table.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material-module';
+import { Comp404Component } from './comp404/comp404.component';
+import { NavbarComponent } from './navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +22,9 @@ import { FilterPipePipe } from './filter-pipe.pipe';
     TableComponentComponent,
     NameConcatPipe,
     FilterPipePipe,
+    MaterialTableComponent,
+    Comp404Component,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +32,9 @@ import { FilterPipePipe } from './filter-pipe.pipe';
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
   ],
   providers: [
     MyHttpServiceService,
