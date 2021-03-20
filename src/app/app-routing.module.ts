@@ -9,7 +9,8 @@ import { TableComponentComponent } from './table-component/table-component.compo
 const routes: Routes = [
   {
     path: '',
-    component: NavbarComponent,
+    redirectTo: 'table2', 
+    pathMatch: 'full'
   },
   {
     path: 'table1',
