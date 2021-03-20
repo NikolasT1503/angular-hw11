@@ -1,0 +1,43 @@
+<!-- старый вариант таблицы 
+сделано: загрузка пользователей через запрос, pipe, interceptor
+далее добавляю компонент mattable -->
+<table>
+    <thead>
+        <caption>Таблица пользователей</caption>
+        <tr>
+            <th>
+                Имя
+            </th>
+            <th>
+                Почта "email"
+            </th>
+            <th>
+                Адрес
+            </th>
+            <th>
+                Дополнительно
+            </th>     
+        </tr>
+        <tr class="filter">
+            <td>
+                <input type="text" (keyup)="onKey($event)">
+            </td>
+            <td>
+                <input type="text" (keyup)="onKey($event)">
+            </td>
+            <td>
+                <input type="text" (keyup)="onKey($event)">
+            </td>
+            <td>
+                
+            </td>     
+        </tr>
+    </thead>
+    <tr *ngFor="let user of myHttp.users | async | filter:filterStr ; let i = index">
+        <td>{{user.name | nameConcat : user.username }}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.addrstr}}</td>
+        <td>{{user | json}}</td>
+    </tr>
+
+</table>
