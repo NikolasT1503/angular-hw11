@@ -8,6 +8,9 @@ import { Users } from './user.interface';
 export class FilterPipePipe implements PipeTransform {
 
   transform(users: Users, filterStr: string): unknown {
+    if (!users) {
+      return false
+    }
     return users.filter(user => {
       return (
         user.name.toLowerCase().includes(filterStr.toLowerCase()) ||
